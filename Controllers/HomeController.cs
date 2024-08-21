@@ -23,6 +23,46 @@ namespace MyPortfolio.Controllers
             return View();
         }
 
+        public IActionResult Projects()
+        {
+            return View();
+        }
+
+        public IActionResult Skills()
+        {
+            return View();
+        }
+
+        public IActionResult Socials()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Contact()
+        {
+            var model = new ContactViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult SendContact(ContactViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Email service to send the message
+
+                // Temp
+                return RedirectToAction("ContactConfirmation");
+            }
+            return View("Contact", model);
+        }
+
+        public IActionResult ContactConfirmation()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

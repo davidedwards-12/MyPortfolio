@@ -1,0 +1,26 @@
+﻿@model MyPortfolio.Models.ContactViewModel
+
+
+<div class="container mt-5">
+    <h2>Contact Me</h2>
+    <form asp-action="SendContact" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="Name" value="@Model?.Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="Email" value="@Model?.Email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="Message" rows="5" required>@Model?.Message</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
+
+<footer class="text-center py-4 mt-5" style="background-color: #f8f9fa;">
+    <p>&copy; 2024 David's Portfolio. All rights reserved.</p>
+    <a href="/">Home</a> | <a href="/Home/Projects">Projects</a> | <a href="/Home/Skills">Skills</a> | <a href="/Home/Contact">Contact</a>
+</footer>
