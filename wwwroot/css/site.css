@@ -164,3 +164,63 @@ input[type=submit]:hover {
 .socials-list li {
     text-align: center;
 }
+
+.skills-container {
+        margin: 50px auto;
+        max-width: 1200px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .skills-header {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .skill-item {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .skill-item h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .skill-item p {
+        font-size: 1.2em;
+        color: #555;
+    }
+
+.skill-bar {
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 25px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.skill-bar span {
+    display: block;
+    height: 100%;
+    background: #007bff;
+    width: 0%;
+    transition: width 1s ease-in-out;
+}
+
+.skill-bar[data-skill="HTML"] span { width: 90%; }
+.skill-bar[data-skill="CSS"] span { width: 75%; }
+.skill-bar[data-skill="JavaScript"] span { width: 20%; }
+.skill-bar[data-skill="C#"] span { width: 90%; }
+.skill-bar[data-skill=".NET"] span { width: 85%; }
+.skill-bar[data-skill="CI/CD"] span { width: 70%; }

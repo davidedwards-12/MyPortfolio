@@ -1,6 +1,51 @@
-﻿namespace MyPortfolio.Views.Home
-{
-    public class Skills
-    {
-    }
+﻿@{
+    ViewData["Title"] = "Skills";
 }
+
+<div class="skills-container">
+    <h2 class="skills-header">My Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-item">
+            <h3>HTML</h3>
+            <div class="skill-bar" data-skill="HTML">
+                <span></span>
+            </div>
+            <p>90%</p>
+        </div>
+        <div class="skill-item">
+            <h3>CSS</h3>
+            <div class="skill-bar" data-skill="CSS" data-skill-width="75%">
+                <span></span>
+            </div>
+            <p>75%</p>
+        </div>
+        <div class="skill-item">
+            <h3>JavaScript</h3>
+            <div class="skill-bar" data-skill="JavaScript" data-skill-width="20%">
+                <span></span>
+            </div>
+            <p>20%</p>
+        </div>
+        <div class="skill-item">
+            <h3>C#</h3>
+            <div class="skill-bar" data-skill="C#" data-skill-width="90%">
+                <span></span>
+            </div>
+            <p>90%</p>
+        </div>
+        <div class="skill-item">
+            <h3>.NET</h3>
+            <div class="skill-bar" data-skill=".NET" data-skill-width="85%">
+                <span></span>
+            </div>
+            <p>85%</p>
+        </div>
+        <div class="skill-item">
+            <h3>CI/CD</h3>
+            <div class="skill-bar" data-skill="CI/CD" data-skill-width="70%">
+                <span></span>
+            </div>
+            <p>70%</p>
+        </div>
+    </div>
+</div>
