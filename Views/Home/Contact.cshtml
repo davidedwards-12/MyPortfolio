@@ -3,7 +3,8 @@
 
 <div class="container mt-5">
     <h2>Contact Me</h2>
-    <form asp-action="SendContact" method="post">
+    <form action="https://api.web3forms.com/submit" method="post">
+        <input type="hidden" name="access_key" value="531b77bc-241a-46ac-8296-6dffab1cbdc7">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="Name" value="@Model?.Name" required>
@@ -19,8 +20,3 @@
         <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
 </div>
-
-<footer class="text-center py-4 mt-5" style="background-color: #f8f9fa;">
-    <p>&copy; 2024 David's Portfolio. All rights reserved.</p>
-    <a href="/">Home</a> | <a href="/Home/Projects">Projects</a> | <a href="/Home/Skills">Skills</a> | <a href="/Home/Contact">Contact</a>
-</footer>
