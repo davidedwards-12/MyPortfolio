@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.Models;
-using MyPortfolio.Services;
+//using MyPortfolio.Services;
 using System.Diagnostics;
 
 namespace MyPortfolio.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly EmailService _emailService;
+        //private readonly EmailService _emailService;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(EmailService emailService, ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _emailService = emailService;
+            //_emailService = emailService;
             _logger = logger;
         }
 
@@ -53,7 +53,7 @@ namespace MyPortfolio.Controllers
         {
             if (ModelState.IsValid)
             {
-                _emailService.SendEmail(model.Email, "Contact Form Submission", model.Message);
+                //_emailService.SendEmail(model.Email, "Contact Form Submission", model.Message);
                 return RedirectToAction("ContactConfirmation");
             }
             return View("Contact", model);

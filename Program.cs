@@ -1,4 +1,4 @@
-using MyPortfolio.Services;
+//using MyPortfolio.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Register EmailService with the DI container
-builder.Services.AddSingleton<EmailService>();
+//builder.Services.AddSingleton<EmailService>();
 
 var app = builder.Build();
 
