@@ -89,3 +89,78 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: darkslateblue;
 }
+
+    .socials-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+        min-height: 400px; /* Ensures the container takes up more vertical space */
+    }
+
+    .socials-header {
+        text-align: center;
+        font-size: 2.5em; /* Increase header font size */
+        margin-bottom: 20px;
+    }
+
+    .socials-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 40px; /* Increase spacing between items */
+        margin-top: 30px;
+    }
+
+    .socials-list li {
+        display: flex;
+        align-items: center;
+    }
+
+    .socials-list a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.5em; /* Increase link font size */
+        display: flex;
+        align-items: center;
+        transition: color 0.3s, transform 0.3s;
+    }
+
+    .socials-list a:hover {
+        color: #007bff;
+        transform: scale(1.2); /* Slightly increase hover scale */
+    }
+
+    .social-icon {
+        width: 50px; /* Increase icon size */
+        height: 50px;
+        display: inline-block;
+        background-size: cover;
+        background-position: center;
+        margin-right: 15px; /* Increase margin between icon and text */
+    }
+
+.social-icon.github {
+    background-image: url('../images/github-icon.png');
+}
+
+.social-icon.linkedin {
+    background-image: url('../images/linkedin-icon.png');
+}
+
+.social-icon.twitter {
+    background-image: url('../images/twitter-icon.png');
+}
+
+@media (max-width: 768px) {
+    .socials-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.socials-list li {
+    text-align: center;
+}
