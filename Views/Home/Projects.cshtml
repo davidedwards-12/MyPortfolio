@@ -1,6 +1,28 @@
-﻿namespace MyPortfolio.Views.Home
-{
-    public class Projects
-    {
-    }
+﻿@{
+    ViewData["Title"] = "Projects";
 }
+
+<div class="projects-container">
+    <h2 class="projects-header">My Projects</h2>
+    <div class="projects-grid">
+        <div class="project-item">
+            <div class="project-preview" onclick="toggleProjectDetails('project1')">
+                <img src="~/images/BucStop.png" alt="BucStop Project Thumbnail" />
+            </div>
+            <div id="project1" class="project-details">
+                <h3>BucStop Project</h3>
+                <p>Detailed description of Project 1. This section expands when the preview image is clicked, providing more information about the project, technologies used, and any other relevant details.</p>
+            </div>
+        </div>
+        <div class="project-item">
+            <div class="project-preview" onclick="toggleProjectDetails('project2')">
+                <img src="~/images/project2-thumbnail.jpg" alt="Project 2 Thumbnail" />
+            </div>
+            <div id="project2" class="project-details">
+                <h3>Project 2 Title</h3>
+                <p>Detailed description of Project 2. This section expands when the preview image is clicked, providing more information about the project, technologies used, and any other relevant details.</p>
+            </div>
+        </div>
+        <!-- Add more project items as needed -->
+    </div>
+</div>
