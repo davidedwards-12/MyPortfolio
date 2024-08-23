@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  background-color: lightgray;
+    margin-bottom: 60px;
+    background-image: linear-gradient(to bottom right, grey, white);
 }
 
 img {
