@@ -259,6 +259,8 @@ input[type=submit]:hover {
 }
 
 .project-details {
+    max-height: 200px;
+    overflow-y: auto;
     display: none; /* Initially hidden */
     margin-top: 20px;
     padding: 20px;
@@ -270,6 +272,8 @@ input[type=submit]:hover {
     top: 100%;
     left: 0;
     width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .project-item.expanded .project-details {
