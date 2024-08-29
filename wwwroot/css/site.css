@@ -196,10 +196,10 @@ input[type=submit]:hover {
         margin-bottom: 10px;
     }
 
-    .skill-item p {
-        font-size: 1.2em;
-        color: #555;
-    }
+.skill-item p {
+    font-size: 1.2em;
+    color: #555;
+}
 
 .skill-bar {
     background: #e0e0e0;
@@ -240,40 +240,37 @@ input[type=submit]:hover {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 30px;
 }
 
 .project-item {
-    position: relative;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Ensures the image and description stack vertically */
+    margin-bottom: 30px; /* Adds space between each project */
 }
 
 .project-preview img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    width: 100%; /* Ensure the image takes up the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Crop the image to fit the container */
+    aspect-ratio: 1 / 1; /* Force the image to be a square */
+    border-radius: 10px; /* Optional: Keeps the square shape but rounds the corners */
+    margin-bottom: 10px; /* Adds space between image and description */
 }
 
-.project-preview:hover img {
-    transform: scale(1.05); /* Slightly zoom on hover */
+/*
+    .project-preview:hover img {
+    transform: scale(1.05);
 }
+*/
 
 .project-details {
-    max-height: 200px;
-    overflow-y: auto;
-    display: none; /* Initially hidden */
-    margin-top: 20px;
+    background-color: #f8f9fa;
     padding: 20px;
-    background: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: left;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    margin-bottom: 20px; /* Space between description and next project */
 }
 
 .project-item.expanded .project-details {
