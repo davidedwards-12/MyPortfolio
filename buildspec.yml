@@ -10,9 +10,10 @@ phases:
   install:
     runtime-versions:
       # Specify the runtime for your project, for example:
-      # nodejs: 14
-      # python: 3.8
-      # java: openjdk11
+      dotnet: 6.0
+      nodejs: 14
+      python: 3.8
+      java: openjdk11
     commands:
       # Install any dependencies if necessary
       - echo "Installing dependencies"
