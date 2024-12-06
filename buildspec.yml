@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    S3_BUCKET: your-s3-bucket-name
+    S3_BUCKET: davidedwardstech
     GITHUB_REPO_NAME: MyPortfolio
     BRANCH_NAME: Dev
 
