@@ -13,7 +13,6 @@ phases:
       dotnet: 6.0
       nodejs: 14
       python: 3.8
-      java: openjdk11
     commands:
       # Install any dependencies if necessary
       - echo "Installing dependencies"
