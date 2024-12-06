@@ -1,0 +1,59 @@
+version: 0.2
+
+env:
+  variables:
+    S3_BUCKET: davidedwardstech    # Replace with your actual S3 bucket name
+    GITHUB_REPO_NAME: MyPortfolio  # Replace with your actual GitHub repository name
+    BRANCH_NAME: Dev                 # Replace with the branch name you want to build from
+
+phases:
+  install:
+    runtime-versions:
+      # Specify the runtime for your project, for example:
+      # nodejs: 14
+      # python: 3.8
+      # java: openjdk11
+    commands:
+      # Install any dependencies if necessary
+      echo "Installing dependencies"
+      # For example, if you're using npm, you could install node dependencies:
+      # npm install
+
+  pre_build:
+    commands:
+      # Set up any environment or build-related configuration before the build starts
+      echo "Preparing for build..."
+
+  build:
+    commands:
+      # Run the build commands that you want
+      echo "Starting build process..."
+      # Replace with your build command, for example:
+      # npm run build
+      # mvn clean install
+      # Make sure to build your project and prepare artifacts for upload
+
+  post_build:
+    commands:
+      echo "Build completed"
+      # Create a directory for artifacts or move your build output into an artifact folder
+      # For example:
+      mkdir -p build_output
+      # If you're using npm, move build artifacts:
+      # mv dist/* build_output/
+      # Or any other directory where your built files reside
+      
+      # Copy the build artifacts to the S3 bucket
+      echo "Uploading build artifacts to S3 bucket..."
+      aws s3 cp build_output/ s3://$S3_BUCKET/$GITHUB_REPO_NAME/$BRANCH_NAME/ --recursive
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'build_output'  # This is the directory where build artifacts are stored
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.m2/**/*'  # If using Maven or similar, cache dependencies here
+    - '/root/.npm/**/*'  # If using Node.js or similar, cache dependencies here
