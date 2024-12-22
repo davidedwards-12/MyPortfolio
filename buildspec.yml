@@ -1,33 +1,15 @@
 version: 0.2
 
-env:
-  variables:
-    #S3_BUCKET: davidedwardstech
-    GITHUB_REPO_NAME: MyPortfolio
-    BRANCH_NAME: Dev
-
 phases:
   install:
     runtime-versions:
       dotnet: 6.0
-    commands:
-      - echo "Installing dependencies"
-
   build:
     commands:
-      - echo "Starting build process..."
-      - dotnet publish -c Release -o ./build_output
-
+      - dotnet publish -c Release -o ./publish
   post_build:
     commands:
-      - echo "Build completed"
-      #- aws s3 cp ./build_output/ s3://$S3_BUCKET/$GITHUB_REPO_NAME/$BRANCH_NAME/ --recursive
-
+      - zip -r app.zip ./publish
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'build_output'
-
-cache:
-  paths:
-    - '/root/.nuget/packages/**/*'
+    - app.zip
