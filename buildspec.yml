@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    S3_BUCKET: davidedwardstech
+    #S3_BUCKET: davidedwardstech
     GITHUB_REPO_NAME: MyPortfolio
     BRANCH_NAME: Dev
 
@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
       - echo "Build completed"
-      - aws s3 cp ./build_output/ s3://$S3_BUCKET/$GITHUB_REPO_NAME/$BRANCH_NAME/ --recursive
+      #- aws s3 cp ./build_output/ s3://$S3_BUCKET/$GITHUB_REPO_NAME/$BRANCH_NAME/ --recursive
 
 artifacts:
   files:
