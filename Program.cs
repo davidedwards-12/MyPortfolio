@@ -17,6 +17,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrWhiteSpace(port))
+{
+    app.Urls.Add($"http://*:{port}");
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
