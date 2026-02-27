@@ -1,0 +1,22 @@
+﻿@model MyPortfolio.Models.ContactViewModel
+
+
+<div class="container mt-5">
+    <h2>Contact Me</h2>
+    <form action="https://api.web3forms.com/submit" method="post">
+        <input type="hidden" name="access_key" value="531b77bc-241a-46ac-8296-6dffab1cbdc7">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="Name" value="@Model?.Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="Email" value="@Model?.Email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="Message" rows="5" required>@Model?.Message</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
