@@ -2,19 +2,29 @@
     ViewData["Title"] = "Home";
     ViewData["Description"] = "David Edwards is a software developer building reliable web applications with C#, ASP.NET Core, and modern DevOps practices.";
 }
-<div class="d-flex justify-content-center align-items-center mt-5">
-    <div class="mr-4">
-        <img src="~/images/me.jpg" alt="David's Profile Picture" style="width: 250px;" />
+
+<section class="hero reveal">
+    <div class="hero-grid">
+        <div class="hero-photo-wrap">
+            <img class="hero-photo" src="~/images/me.jpg" alt="Portrait of David Edwards" />
+        </div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Software Engineer - Mobile Application and Product Support</p>
+            <h1>Building practical software that people can rely on.</h1>
+            <p class="hero-copy">
+                I'm a Software Engineer focused on mobile app development and product support, with a Computer Science
+                foundation from East Tennessee State University. In my role at Permobil, I build and maintain iOS and
+                Android applications using Swift and Kotlin, delivering stable, high-performance experiences that
+                integrate with connected hardware.
+            </p>
+            <p class="hero-copy">
+                I also bring experience in C#, .NET, CI/CD, automated testing, Docker, and Agile/Scrum workflows.
+                I'm driven by curiosity, clean code, and building software that creates real-world impact.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary-hero" asp-controller="Home" asp-action="Projects">View Projects</a>
+                <a class="btn btn-ghost-hero" asp-controller="Home" asp-action="Contact">Contact Me</a>
+            </div>
+        </div>
     </div>
-</div>
-<div class="text-center mt-5 py-5">
-    <h2 class="display-4 fw-bold">Hi, I am David!</h2>
-    <p class="lead mt-4 mx-auto">
-        I am a software developer with a Computer Science background from East Tennessee State University.
-        I focus on building dependable, user-centered applications with C#, ASP.NET Core, and practical DevOps workflows.
-        I enjoy turning ideas into production-ready solutions and continuously sharpening my skills through hands-on projects.
-    </p>
-    <button class="button" style="vertical-align:middle" onclick="window.location.href='@Url.Action("Contact","Home")'">
-        <span>Contact Me</span>
-    </button>
-</div>
+</section>

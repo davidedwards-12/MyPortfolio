@@ -4,7 +4,7 @@
     ViewData["Description"] = "Send a message to David Edwards through the portfolio contact form.";
 }
 
-<div class="container mt-5">
+<section class="container mt-5 reveal contact-section">
     <h2>Contact Me</h2>
     <form asp-controller="Home" asp-action="SendContact" method="post" novalidate>
         @Html.AntiForgeryToken()
@@ -26,7 +26,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
-</div>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

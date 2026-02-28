@@ -1,16 +1,21 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+document.addEventListener("DOMContentLoaded", () => {
+  const revealItems = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
 
-// Write your JavaScript code.
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.16 }
+  );
 
-function toggleProjectDetails(projectId) {
-    const project = document.getElementById(projectId);
-    const projectItem = project.parentElement;
-
-    if (projectItem.classList.contains('expanded')) {
-        projectItem.classList.remove('expanded');
-    } else {
-        document.querySelectorAll('.project-item').forEach(item => item.classList.remove('expanded'));
-        projectItem.classList.add('expanded');
-    }
-}
+  revealItems.forEach((item) => observer.observe(item));
+});

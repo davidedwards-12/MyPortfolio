@@ -3,14 +3,14 @@
     ViewData["Description"] = "Selected software projects by David Edwards, including full-stack web apps and team-based development work.";
 }
 
-<div class="projects-container">
-    <h2 class="projects-header">My Projects</h2>
+<section class="projects-container reveal">
+    <h2 class="projects-header">Selected Projects</h2>
     <div class="projects-grid">
         <div class="project-item">
-            <div class="project-preview" onclick="toggleProjectDetails('project1')">
+            <div class="project-preview">
                 <img src="~/images/BucStop.png" alt="BucStop Project Thumbnail" />
             </div>
-            <div id="project1" class="project-details">
+            <div class="project-details">
                 <h3>BucStop Project</h3>
                 <p>
                     BucStop is a web platform that gave ETSU students classic arcade games to play between classes.
@@ -21,10 +21,10 @@
             </div>
         </div>
         <div class="project-item">
-            <div class="project-preview" onclick="toggleProjectDetails('project2')">
+            <div class="project-preview">
                 <img src="~/images/SignWiz.png" alt="SignWiz App Project Thumbnail" />
             </div>
-            <div id="project2" class="project-details">
+            <div class="project-details">
                 <h3>SignWiz App</h3>
                 <p>
                     SignWiz is an educational app designed to help users learn sign language through quizzes and interactive challenges.
@@ -33,10 +33,10 @@
             </div>
         </div>
         <div class="project-item">
-            <div class="project-preview" onclick="toggleProjectDetails('project3')">
+            <div class="project-preview">
                 <img src="~/images/BucHunt.png" alt="BucHunt Project Thumbnail" />
             </div>
-            <div id="project3" class="project-details">
+            <div class="project-details">
                 <h3>BucHunt Project</h3>
                 <p>
                     BucHunt is a scavenger-hunt game that helps new ETSU students learn campus locations through gameplay.
@@ -44,5 +44,16 @@
                 </p>
             </div>
         </div>
+        <div class="project-item">
+            <div class="project-preview">
+                <img src="~/images/portfolio.png" alt="My Portfolio Project Thumbnail" />
+            </div>
+            <div class="project-details">
+                <h3>My Portfolio</h3>
+                <p>
+                    This website! My Portfolio is a personal website showcasing my projects, skills, and experience. I designed and developed the site to highlight my work and provide a professional online presence.
+                    Technologies: C#, ASP.NET Core, SQL Server, JavaScript.
+                </p>
+            </div>
     </div>
-</div>
+</section>
