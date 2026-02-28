@@ -1,9 +1,40 @@
-﻿<!DOCTYPE html>
+﻿@inject IConfiguration Configuration
+@{
+    var pageTitle = (ViewData["Title"] as string) ?? "Home";
+    var siteName = Configuration["Site:Name"] ?? "David Edwards";
+    var baseUrl = (Configuration["Site:BaseUrl"] ?? "https://davidedwards.dev").TrimEnd('/');
+    var defaultDescription = Configuration["Site:DefaultDescription"] ?? "Portfolio of David Edwards, a software developer focused on C#, .NET, and reliable web applications.";
+    var pageDescription = (ViewData["Description"] as string) ?? defaultDescription;
+    var socialImagePath = Configuration["Site:SocialImagePath"] ?? "/images/me.jpg";
+    var socialImageUrl = socialImagePath.StartsWith("http", StringComparison.OrdinalIgnoreCase)
+        ? socialImagePath
+        : $"{baseUrl}{socialImagePath}";
+    var canonicalUrl = $"{baseUrl}{Context.Request.Path}";
+    var searchConsoleVerification = Configuration["Seo:GoogleSiteVerification"];
+    var googleAnalyticsMeasurementId = Configuration["Analytics:GoogleMeasurementId"];
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyPortfolio</title>
+    <title>@pageTitle | @siteName</title>
+    <meta name="description" content="@pageDescription" />
+    <link rel="canonical" href="@canonicalUrl" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@siteName" />
+    <meta property="og:title" content="@($"{pageTitle} | {siteName}")" />
+    <meta property="og:description" content="@pageDescription" />
+    <meta property="og:url" content="@canonicalUrl" />
+    <meta property="og:image" content="@socialImageUrl" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@($"{pageTitle} | {siteName}")" />
+    <meta name="twitter:description" content="@pageDescription" />
+    <meta name="twitter:image" content="@socialImageUrl" />
+    @if (!string.IsNullOrWhiteSpace(searchConsoleVerification))
+    {
+        <meta name="google-site-verification" content="@searchConsoleVerification" />
+    }
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MyPortfolio.styles.css" asp-append-version="true" />
@@ -39,12 +70,22 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - MyPortfolio - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.UtcNow.Year - @siteName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @if (!string.IsNullOrWhiteSpace(googleAnalyticsMeasurementId))
+    {
+        <script async src="https://www.googletagmanager.com/gtag/js?id=@googleAnalyticsMeasurementId"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', '@googleAnalyticsMeasurementId');
+        </script>
+    }
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
