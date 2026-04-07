@@ -1,33 +1,27 @@
-﻿@model MyPortfolio.Models.ContactViewModel
 @{
     ViewData["Title"] = "Contact";
     ViewData["Description"] = "Send a message to David Edwards through the portfolio contact form.";
+    var confirmationUrl = $"{Context.Request.Scheme}://{Context.Request.Host}/Home/ContactConfirmation";
 }
 
 <section class="container mt-5 reveal contact-section">
     <h2>Contact Me</h2>
-    <form asp-controller="Home" asp-action="SendContact" method="post" novalidate>
-        @Html.AntiForgeryToken()
-        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="531b77bc-241a-46ac-8296-6dffab1cbdc7" />
+        <input type="hidden" name="subject" value="Portfolio Contact Form Submission" />
+        <input type="hidden" name="redirect" value="@confirmationUrl" />
         <div class="mb-3">
-            <label asp-for="Name" class="form-label"></label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required />
         </div>
         <div class="mb-3">
-            <label asp-for="Email" class="form-label">Email address</label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" id="email" name="email" class="form-control" required />
         </div>
         <div class="mb-3">
-            <label asp-for="Message" class="form-label"></label>
-            <textarea asp-for="Message" class="form-control" rows="5"></textarea>
-            <span asp-validation-for="Message" class="text-danger"></span>
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
 </section>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}

@@ -4,7 +4,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient();
 
 // Register EmailService with the DI container
 //builder.Services.AddSingleton<EmailService>();
