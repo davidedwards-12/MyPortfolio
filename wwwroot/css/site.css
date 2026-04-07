@@ -389,3 +389,13 @@ a {
     padding: 1.25rem;
   }
 }
+
+.image-zoom {
+  transition: transform .2s; /* Smooth animation */
+}
+
+.image-zoom:hover {
+  transform: scale(1.04); /* Zoom in */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add subtle shadow on hover */
+}
+
