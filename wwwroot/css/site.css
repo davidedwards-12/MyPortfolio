@@ -187,14 +187,12 @@ a {
 
 .projects-container,
 .skills-container,
-.socials-container,
 .contact-section {
   margin-top: 2.4rem;
 }
 
 .projects-header,
-.skills-header,
-.socials-header {
+.skills-header {
   margin-bottom: 1.2rem;
 }
 
@@ -263,31 +261,6 @@ a {
   margin: 0;
 }
 
-.socials-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.9rem;
-}
-
-.socials-list a {
-  text-decoration: none;
-  color: var(--ink);
-  padding: 0.95rem 1rem;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-.socials-list a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(23, 33, 38, 0.12);
-}
 
 .social-icon {
   width: 36px;
@@ -340,6 +313,30 @@ a {
   border-top: 1px solid rgba(23, 33, 38, 0.1);
   padding: 1rem 0 1.6rem;
   color: #5b666f;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footer-socials a:hover {
+  opacity: 1;
 }
 
 .reveal {

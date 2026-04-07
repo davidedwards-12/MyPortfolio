@@ -41,11 +41,6 @@ namespace MyPortfolio.Controllers
             return View();
         }
 
-        public IActionResult Socials()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult Contact()
         {
