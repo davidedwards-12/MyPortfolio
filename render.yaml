@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: myportfolio
-    env: docker
-    plan: free
-    autoDeploy: true

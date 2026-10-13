@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Astro
+node_modules/
+dist/
+.astro/
+.DS_Store
+
+# Claude Code local files
+.claude/

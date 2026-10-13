@@ -1,0 +1,148 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import me from '../assets/me.jpg';
+import { site, experience, toolbox, featured, projects, teaser } from '../data/site';
+---
+
+<Base>
+  <section class="hero">
+    <p class="label">{site.role} · Permobil</p>
+    <h1>I build mobile apps that talk to <em>real hardware</em>.</h1>
+    <div class="hero-body">
+      <Image class="avatar" src={me} alt="Portrait of David Edwards" width={96} height={96} densities={[1, 2]} loading="eager" />
+      <p>
+        I'm David. At Permobil I ship features across iOS, Android and embedded software for medical devices, and I
+        look after the CI/CD pipelines and build servers that get them out the door.
+      </p>
+    </div>
+    <div class="actions">
+      <a class="btn solid" href="#projects">See my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn quiet" href={site.github} rel="me noopener">GitHub ↗</a>
+      <a class="btn quiet" href={site.linkedin} rel="me noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <section id="experience" class="block">
+    <h2 class="label"><span>01</span> Experience</h2>
+    <ol class="roles">
+      {
+        experience.map((role) => (
+          <li class="role">
+            <p class="role-dates">{role.dates}</p>
+            <div>
+              <h3>
+                {role.title} <span class="org">· {role.org}</span>
+              </h3>
+              {role.summary && <p>{role.summary}</p>}
+              {role.points.length > 0 && (
+                <ul>
+                  {role.points.map((point) => (
+                    <li>{point}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+    <dl class="toolbox">
+      {
+        toolbox.map((group) => (
+          <div>
+            <dt>{group.label}</dt>
+            <dd>{group.items.join(' · ')}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section id="projects" class="block">
+    <h2 class="label"><span>02</span> Projects</h2>
+
+    <article class="feature">
+      <div class="feature-text">
+        <p class="kind">{featured.kind}</p>
+        <h3>{featured.name}</h3>
+        <p>{featured.blurb}</p>
+        <ul class="tags">
+          {featured.stack.map((tag) => <li>{tag}</li>)}
+        </ul>
+        {featured.repo && <a class="more" href={featured.repo} rel="noopener">View source on GitHub ↗</a>}
+      </div>
+      {
+        featured.image && (
+          <div class="phone">
+            <Image src={featured.image} alt={featured.imageAlt ?? ''} width={300} densities={[1, 2]} />
+          </div>
+        )
+      }
+    </article>
+
+    <div class="cards">
+      {
+        projects.map((project) => (
+          <article class="card">
+            {project.image ? (
+              <Image class="shot" src={project.image} alt={project.imageAlt ?? ''} width={520} densities={[1, 2]} />
+            ) : (
+              <div class="shot shot-type" aria-hidden="true">
+                davidedwards.dev
+              </div>
+            )}
+            <p class="kind">{project.kind}</p>
+            <h3>{project.name}</h3>
+            <p>{project.blurb}</p>
+            <ul class="tags">
+              {project.stack.map((tag) => <li>{tag}</li>)}
+            </ul>
+            {project.repo && <a class="more" href={project.repo} rel="noopener">View source ↗</a>}
+          </article>
+        ))
+      }
+      <article class="card secret">
+        <div class="shot shot-type" aria-hidden="true">?</div>
+        <p class="kind">{teaser.status}</p>
+        <h3>{teaser.name}</h3>
+        <p class="redacted" aria-label="Details not announced yet">
+          <span></span><span></span><span></span>
+        </p>
+        <ul class="tags">
+          <li>Classified</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="block">
+    <h2 class="label"><span>03</span> Contact</h2>
+    <div class="contact">
+      <div>
+        <h3 class="big">Have a project or a role in mind?</h3>
+        <p>Send a note here, or find me on <a href={site.linkedin} rel="me noopener">LinkedIn</a>.</p>
+      </div>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value={site.email_form_key} />
+        <input type="hidden" name="subject" value="Portfolio Contact Form Submission" />
+        <input type="hidden" name="redirect" value={new URL('/thanks', Astro.site).href} />
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label>
+          Name
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button class="btn solid" type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+</Base>
