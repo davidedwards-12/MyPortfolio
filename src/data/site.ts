@@ -6,7 +6,7 @@ export const site = {
   name: 'David Edwards',
   role: 'Application Software Engineer',
   description:
-    'David Edwards is an Application Software Engineer at Permobil, shipping iOS, Android and embedded software for medical devices and running the CI/CD behind it.',
+    'David Edwards is an Application Software Engineer at Permobil, building iOS and Android apps for connected medical devices and running the CI/CD behind them.',
   email_form_key: '531b77bc-241a-46ac-8296-6dffab1cbdc7', // Web3Forms public access key
   github: 'https://github.com/davidedwards-12',
   linkedin: 'https://www.linkedin.com/in/davidmedwards12',
@@ -26,10 +26,10 @@ export const experience: Role[] = [
     org: 'Permobil',
     dates: 'Dec 2025 – Present',
     points: [
-      'Core member of the Application Team on new product development, designing and delivering features across iOS, Android and embedded software in a regulated medical device environment.',
+      'Core member of the Application Team on new product development, designing and delivering features for the iOS and Android apps alongside the embedded software team, in a regulated medical device environment.',
       'Own end-to-end testing and validation, enforcing the quality gates that releases have to pass before production.',
-      'Write and maintain the CI/CD pipeline scripts and YAML configuration behind automated builds for every platform.',
-      'Administer the self-hosted Mac build servers that the iOS, Android and embedded pipelines depend on.',
+      "Write and maintain the CI/CD pipeline scripts and YAML configuration behind the team's automated builds.",
+      "Administer the self-hosted Mac build servers that the team's build pipelines depend on.",
     ],
   },
   {
@@ -62,7 +62,7 @@ export const experience: Role[] = [
 
 export const toolbox: { label: string; items: string[] }[] = [
   { label: 'Languages', items: ['Swift', 'Kotlin', 'C#', 'Java', 'Python'] },
-  { label: 'Platforms', items: ['iOS', 'Android', 'Embedded', 'Linux/Unix'] },
+  { label: 'Platforms', items: ['iOS', 'Android', 'Linux/Unix'] },
   { label: 'Delivery', items: ['CI/CD pipelines', 'Automated testing', 'GitHub', 'Scrum'] },
 ];
 
